@@ -6,3 +6,14 @@
   border-radius: 50%;
   display: inline-block;
 }
+.colorsContainer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100vw;
+  flex-wrap: wrap;
+}
+.colorContainer{
+  padding: 20px;
+  margin:50px;
+}
