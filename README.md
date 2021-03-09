@@ -1,7 +1,7 @@
 # ERC721
 
-This contains work from others and it is a modification of a cloned repo on NFT.
-Big shout-out to DappUniversity at https://github.com/dappuniversity and hes tutorial on https://www.youtube.com/watch?v=YPbgjPPC1d0&t=3736s
+This contains work from https://github.com/dappuniversity and it is a modification of a cloned repo on NFT.
+Big shout-out to hes tutorial on https://www.youtube.com/watch?v=YPbgjPPC1d0&t=3736s
 The original repo can be found here https://github.com/dappuniversity/nft
 
 External resources related to this proyect are:
