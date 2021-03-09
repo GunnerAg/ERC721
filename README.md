@@ -2,6 +2,31 @@
 A modification of a cloned repo on NFT
 The original repo can be found here https://github.com/dappuniversity/nft
 
+External resources related to this proyect are:
+
+  React is a front-end library and Bootstrap provides build in styled components.
+- https://es.reactjs.org
+- https://react-bootstrap.github.io
+
+  Ethereum Virtual Machine (EVM) testing framework and asset pipeline for blockchains.
+- https://www.trufflesuite.com/docs/truffle/overview
+
+  The web3.js library is a collection of modules that contain functionality for the ethereum ecosystem.
+- https://web3js.readthedocs.io/en/v1.3.4/
+
+  Library for smart contracts following standards (like the ERC721)
+- https://openzeppelin.com
+
+  Contract oriented High-level programming language.
+- https://solidity-es.readthedocs.io/es/latest
+
+  Crypto wallet extension for Chrome.
+- https://metamask.io
+
+  For testing
+- https://mochajs.org
+- https://www.chaijs.com
+
 My changes are:
 
 - Some fixes for new solidity versions.
