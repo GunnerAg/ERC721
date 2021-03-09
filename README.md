@@ -1,5 +1,7 @@
 # ERC721
-A modification of a cloned repo on NFT
+
+This contains work from others and it is a modification of a cloned repo on NFT.
+Big shout-out to DappUniversity at https://github.com/dappuniversity and hes tutorial on https://www.youtube.com/watch?v=YPbgjPPC1d0&t=3736s
 The original repo can be found here https://github.com/dappuniversity/nft
 
 External resources related to this proyect are:
@@ -27,7 +29,7 @@ External resources related to this proyect are:
 - https://mochajs.org
 - https://www.chaijs.com
 
-My changes are:
+My changes from the original repo are:
 
 - Some fixes for new solidity versions.
 - Used the openzeppellin library import rather than a copy of the source code.
@@ -35,7 +37,7 @@ My changes are:
 - Added a RegExp to check for valid href colors on the mint function at App.js
 - Added my own css to display the colors.
 
-Future changes would be:
+Future changes to this repo might be:
 
 - Use metadata or tokenURI methods rather than the Colors array.
 - Add restrictions on the mint function to an owner.
