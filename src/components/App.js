@@ -11,13 +11,13 @@ export default function App()  {
     loadBlockchainData()
   }, [])
 
-  const [account,setAccount]=useState('')
-  const [contract,setContract]=useState(null)
-  const [totalSupply,setSupply]=useState()
+  let [account,setAccount]=useState('')
+  let [contract,setContract]=useState(null)
+  let [totalSupply,setSupply]=useState()
   let [colors,setColors]=useState([])
-  const [newToken,setToken]=useState('')
+  let [newToken,setToken]=useState('')
 
-  async function loadWeb3(){
+  async function loadWeb3 (){
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum)
       await window.ethereum.enable()
@@ -30,26 +30,29 @@ export default function App()  {
     }
   }
 
-  async function loadBlockchainData() {
+  async function loadBlockchainData(){
     const web3 = window.web3
     // Load account
     const accounts = await web3.eth.getAccounts()
-   setAccount(accounts[0])
-
+    setAccount(account=accounts[0])
     const networkId = await web3.eth.net.getId()
     const networkData = Color.networks[networkId]
     if(networkData) {
       const abi = Color.abi
       const address = networkData.address
-      let contract = new web3.eth.Contract(abi, address)
-      setContract(contract=contract)
-      const totalSupply = await contract.methods.totalSupply().call()
-      setSupply(totalSupply)
+      const currentContract = new web3.eth.Contract(abi, address)
+      setContract(contract=currentContract);
+      console.log(contract.methods.totalSupply().call())
+      const currentSupply= await contract.methods.totalSupply().call()
+      console.log('IM HERE', currentSupply)
+      setSupply(totalSupply=currentSupply);
       // Load Colors
-      for (var i = 1; i <= totalSupply; i++) {
-        const color = await contract.methods.colors(i - 1).call()
-        setColors(colors=[...colors, color])
+      for (var i = 1; i<= totalSupply; i++) {
+        const color = await contract.methods.colors(i).call()
+        let colorArray=[...colors, color];
+        setColors(colors=colorArray)
       }
+      console.log('here',colors)
     } else {
       window.alert('Smart contract not deployed to detected network.')
     }
@@ -57,10 +60,11 @@ export default function App()  {
 
   let mint = (newToken) => {
     if(/^#[0-9A-F]{6}$/i.test(newToken)){
-      contract.methods.mint(newToken).send({ from: account })
+      contract.methods.mint(newToken).send({from: account})
         .once('receipt', (receipt) => {
-          setColors([...colors, newToken])
-        })
+          let colorsArray=[...colors, newToken]
+          setColors(colors=colorsArray)
+        });
     }
     else{ window.alert(' that is not a valid href color, try something like #000000 ')}
   }
@@ -68,24 +72,23 @@ export default function App()  {
   let handleSubmit=(e)=>{
     e.preventDefault()
     mint(newToken)
-  }
+  } 
 
   let handleChange=(event)=>{
-    setToken(event.currentTarget.value)
+    setToken(newToken=event.currentTarget.value)
   }
 
   
     return (
       <div>
         <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-          <a
+          <h1
             className="navbar-brand col-sm-3 col-md-2 mr-0"
-            href="http://www.dappuniversity.com/bootcamp"
             target="_blank"
             rel="noopener noreferrer"
           >
             Color Tokens
-          </a>
+          </h1>
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
               <small className="text-white"><span id="account">{account}</span></small>
@@ -128,5 +131,4 @@ export default function App()  {
       </div>
     );
   }
-
 
