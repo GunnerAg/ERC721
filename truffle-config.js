@@ -4,7 +4,7 @@ require('babel-polyfill');
 module.exports = {
   networks: {
     development: {
-      host: "localhost",
+      host: "https://nft-erc-721.netlify.app",
       port: 8545,
       network_id: "*", // Match any network id
     }
